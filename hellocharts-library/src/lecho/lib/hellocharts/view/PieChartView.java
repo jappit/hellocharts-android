@@ -3,12 +3,11 @@ package lecho.lib.hellocharts.view;
 import android.content.Context;
 import android.graphics.RectF;
 import android.os.Build;
-import android.support.v4.view.ViewCompat;
+import androidx.core.view.ViewCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
-import lecho.lib.hellocharts.BuildConfig;
 import lecho.lib.hellocharts.animation.PieChartRotationAnimator;
 import lecho.lib.hellocharts.animation.PieChartRotationAnimatorV14;
 import lecho.lib.hellocharts.animation.PieChartRotationAnimatorV8;
@@ -65,9 +64,6 @@ public class PieChartView extends AbstractChartView implements PieChartDataProvi
 
     @Override
     public void setPieChartData(PieChartData data) {
-        if (BuildConfig.DEBUG) {
-            Log.d(TAG, "Setting data for ColumnChartView");
-        }
 
         if (null == data) {
             this.data = PieChartData.generateDummyData();

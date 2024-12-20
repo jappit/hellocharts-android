@@ -1,11 +1,10 @@
 package lecho.lib.hellocharts.view;
 
 import android.content.Context;
-import android.support.v4.view.ViewCompat;
+import androidx.core.view.ViewCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 
-import lecho.lib.hellocharts.BuildConfig;
 import lecho.lib.hellocharts.listener.BubbleChartOnValueSelectListener;
 import lecho.lib.hellocharts.listener.DummyBubbleChartOnValueSelectListener;
 import lecho.lib.hellocharts.model.BubbleChartData;
@@ -49,9 +48,6 @@ public class BubbleChartView extends AbstractChartView implements BubbleChartDat
 
     @Override
     public void setBubbleChartData(BubbleChartData data) {
-        if (BuildConfig.DEBUG) {
-            Log.d(TAG, "Setting data for BubbleChartView");
-        }
 
         if (null == data) {
             this.data = BubbleChartData.generateDummyData();

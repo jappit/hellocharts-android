@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 
-import lecho.lib.hellocharts.BuildConfig;
 import lecho.lib.hellocharts.listener.ColumnChartOnValueSelectListener;
 import lecho.lib.hellocharts.listener.DummyColumnChartOnValueSelectListener;
 import lecho.lib.hellocharts.model.ColumnChartData;
@@ -44,9 +43,6 @@ public class ColumnChartView extends AbstractChartView implements ColumnChartDat
 
     @Override
     public void setColumnChartData(ColumnChartData data) {
-        if (BuildConfig.DEBUG) {
-            Log.d(TAG, "Setting data for ColumnChartView");
-        }
 
         if (null == data) {
             this.data = ColumnChartData.generateDummyData();

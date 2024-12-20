@@ -1,11 +1,10 @@
 package lecho.lib.hellocharts.view;
 
 import android.content.Context;
-import android.support.v4.view.ViewCompat;
+import androidx.core.view.ViewCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 
-import lecho.lib.hellocharts.BuildConfig;
 import lecho.lib.hellocharts.computator.PreviewChartComputator;
 import lecho.lib.hellocharts.gesture.PreviewChartTouchHandler;
 import lecho.lib.hellocharts.model.LineChartData;
@@ -45,9 +44,6 @@ public class PreviewLineChartView extends LineChartView {
     }
 
     public void setPreviewColor(int color) {
-        if (BuildConfig.DEBUG) {
-            Log.d(TAG, "Changing preview area color");
-        }
 
         previewChartRenderer.setPreviewColor(color);
         ViewCompat.postInvalidateOnAnimation(this);

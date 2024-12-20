@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 
-import lecho.lib.hellocharts.BuildConfig;
 import lecho.lib.hellocharts.listener.ComboLineColumnChartOnValueSelectListener;
 import lecho.lib.hellocharts.listener.DummyCompoLineColumnChartOnValueSelectListener;
 import lecho.lib.hellocharts.model.ChartData;
@@ -57,9 +56,6 @@ public class ComboLineColumnChartView extends AbstractChartView implements Combo
 
     @Override
     public void setComboLineColumnChartData(ComboLineColumnChartData data) {
-        if (BuildConfig.DEBUG) {
-            Log.d(TAG, "Setting data for ComboLineColumnChartView");
-        }
 
         if (null == data) {
             this.data = null;// generateDummyData();

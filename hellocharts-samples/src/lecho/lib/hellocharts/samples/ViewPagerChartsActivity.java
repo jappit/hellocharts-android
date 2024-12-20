@@ -1,11 +1,11 @@
 package lecho.lib.hellocharts.samples;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
+import androidx.core.app.Fragment;
+import androidx.core.app.FragmentManager;
+import androidx.core.app.FragmentPagerAdapter;
+import androidx.core.app.FragmentTransaction;
+import androidx.core.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
@@ -40,9 +40,9 @@ import lecho.lib.hellocharts.view.PreviewLineChartView;
 public class ViewPagerChartsActivity extends ActionBarActivity implements ActionBar.TabListener {
 
     /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each of the sections. We use a
+     * The {@link androidx.core.view.PagerAdapter} that will provide fragments for each of the sections. We use a
      * {@link FragmentPagerAdapter} derivative, which will keep every loaded fragment in memory. If this becomes too
-     * memory intensive, it may be best to switch to a {@link android.support.v4.app.FragmentStatePagerAdapter}.
+     * memory intensive, it may be best to switch to a {@link androidx.core.app.FragmentStatePagerAdapter}.
      */
     SectionsPagerAdapter mSectionsPagerAdapter;
 
