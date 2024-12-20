@@ -97,6 +97,10 @@ public class LineChartRenderer extends AbstractChartRenderer {
         }
     }
 
+    public LineChartDataProvider getDataProvider() {
+        return dataProvider;
+    }
+
     @Override
     public void draw(Canvas canvas) {
         final LineChartData data = dataProvider.getLineChartData();
