@@ -14,6 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
+            android:exported="true"
             android:name=".MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
@@ -23,54 +24,67 @@
             </intent-filter>
         </activity>
         <activity
+            android:exported="true"
             android:name=".LineChartActivity"
             android:label="@string/title_activity_line_chart" >
         </activity>
         <activity
+            android:exported="true"
             android:name=".ColumnChartActivity"
             android:label="@string/title_activity_column_chart" >
         </activity>
         <activity
+            android:exported="true"
             android:name=".PieChartActivity"
             android:label="@string/title_activity_pie_chart" >
         </activity>
         <activity
+            android:exported="true"
             android:name=".BubbleChartActivity"
             android:label="@string/title_activity_bubble_chart" >
         </activity>
         <activity
+            android:exported="true"
             android:name=".PreviewLineChartActivity"
             android:label="@string/title_activity_preview_line_chart" >
         </activity>
         <activity
+            android:exported="true"
             android:name=".PreviewColumnChartActivity"
             android:label="@string/title_activity_preview_column_chart" >
         </activity>
         <activity
+            android:exported="true"
             android:name=".ComboLineColumnChartActivity"
             android:label="@string/title_activity_combo_line_column_chart" >
         </activity>
         <activity
+            android:exported="true"
             android:name=".LineColumnDependencyActivity"
             android:label="@string/title_activity_line_column_dependency" >
         </activity>
         <activity
+            android:exported="true"
             android:name=".GoodBadChartActivity"
             android:label="@string/title_activity_good_bad" >
         </activity>
         <activity
+            android:exported="true"
             android:name=".TempoChartActivity"
             android:label="@string/title_activity_tempo_chart" >
         </activity>
         <activity
+            android:exported="true"
             android:name=".SpeedChartActivity"
             android:label="@string/title_activity_speed_chart" >
         </activity>
         <activity
+            android:exported="true"
             android:name=".ViewPagerChartsActivity"
             android:label="@string/title_activity_view_pager_charts" >
         </activity>
         <activity
+            android:exported="true"
             android:name=".AboutActivity"
             android:label="@string/title_activity_about" >
         </activity>

@@ -280,51 +280,27 @@ public class ChartTouchHandler {
 
     protected class ChartGestureListener extends GestureDetector.SimpleOnGestureListener {
 
-        protected ScrollResult scrollResult = new ScrollResult();
+        protected ScrollResult scrollResult;// = new ScrollResult();
 
         @Override
         public boolean onDown(MotionEvent e) {
-            if (isScrollEnabled) {
-
-                disallowParentInterceptTouchEvent();
-
-                return chartScroller.startScroll(computator);
-            }
-
             return false;
 
         }
 
         @Override
         public boolean onDoubleTap(MotionEvent e) {
-            if (isZoomEnabled) {
-                return chartZoomer.startZoom(e, computator);
-            }
-
             return false;
         }
 
         @Override
         public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-            if (isScrollEnabled) {
-                boolean canScroll = chartScroller
-                        .scroll(computator, distanceX, distanceY, scrollResult);
-
-                allowParentInterceptTouchEvent(scrollResult);
-
-                return canScroll;
-            }
-
             return false;
 
         }
 
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-            if (isScrollEnabled) {
-                return chartScroller.fling((int) -velocityX, (int) -velocityY, computator);
-            }
-
             return false;
         }
     }

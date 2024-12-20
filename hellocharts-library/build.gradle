@@ -32,6 +32,7 @@ dependencies {
     //compile 'com.android.support:support-v4:23.4.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'androidx.core:core:1.9.0'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
 }
 
 
@@ -39,7 +40,9 @@ android {
     buildFeatures {
         buildConfig true
     }
-
+    packagingOptions {
+        exclude 'lecho/lib/hellocharts/animation/ChartDataAnimatorV8$1.class'
+    }
 
     compileSdkVersion Integer.parseInt(project.ANDROID_BUILD_SDK_VERSION)
     buildToolsVersion project.ANDROID_BUILD_TOOLS_VERSION
@@ -47,6 +50,7 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+        coreLibraryDesugaringEnabled true
     }
 
     defaultConfig {
@@ -54,6 +58,7 @@ android {
         targetSdkVersion Integer.parseInt(project.ANDROID_BUILD_TARGET_SDK_VERSION)
         versionCode Integer.parseInt(project.VERSION_CODE)
         versionName project.VERSION_NAME
+        multiDexEnabled true
     }
 
     sourceSets {
@@ -71,6 +76,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
