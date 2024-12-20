@@ -105,6 +105,9 @@ android.libraryVariants.all { variant ->
 // To publish to maven local execute "gradle clean build publishToMavenLocal"
 // To publish to nexus execute "gradle clean build publish"
 android.libraryVariants
+signing {
+    required { false } // Disabilita la firma
+}
 publishing {
     publications {
         maven(MavenPublication) {
