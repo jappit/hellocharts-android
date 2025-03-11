@@ -1,7 +1,14 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
-apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
+//apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
 
+def versionNameValue = '1.0.0'
+def minSDK = project.hasProperty('ANDROID_BUILD_MIN_SDK_VERSION') ? ANDROID_BUILD_MIN_SDK_VERSION : 14
+def targetSDK = project.hasProperty('ANDROID_BUILD_TARGET_SDK_VERSION') ? ANDROID_BUILD_TARGET_SDK_VERSION : 33
+def buildSDK = project.hasProperty('ANDROID_BUILD_SDK_VERSION') ? ANDROID_BUILD_SDK_VERSION : '33'
+def group = project.hasProperty('GROUP') ? GROUP : 14
+def versionCodeValue = project.hasProperty('VERSION_CODE') ? VERSION_CODE : 13
+def buildToolVersion = project.hasProperty('ANDROID_BUILD_TOOLS_VERSION') ? ANDROID_BUILD_TOOLS_VERSION : '30.0.3'
 //To upload to maven central
 //http://zserge.com/blog/gradle-maven-publish.html
 //gradle uploadArchives
@@ -16,7 +23,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.4.2'
+        classpath 'com.android.tools.build:gradle:8.1.0'
     }
 }
 repositories {
@@ -42,25 +49,29 @@ java {
 }
 
 android {
+    namespace "lecho.lib.hellocharts"
+
     buildFeatures {
         buildConfig true
+        renderScript true
+        aidl true
     }
     packagingOptions {
         exclude 'lecho/lib/hellocharts/animation/ChartDataAnimatorV8$1.class'
     }
 
-    compileSdkVersion Integer.parseInt(project.ANDROID_BUILD_SDK_VERSION)
-    buildToolsVersion project.ANDROID_BUILD_TOOLS_VERSION
+    compileSdkVersion Integer.parseInt(buildSDK)
+    buildToolsVersion buildToolVersion
 
     compileOptions {
         coreLibraryDesugaringEnabled true
     }
 
     defaultConfig {
-        minSdkVersion Integer.parseInt(project.ANDROID_BUILD_MIN_SDK_VERSION)
-        targetSdkVersion Integer.parseInt(project.ANDROID_BUILD_TARGET_SDK_VERSION)
-        versionCode Integer.parseInt(project.VERSION_CODE)
-        versionName project.VERSION_NAME
+        minSdkVersion minSDK
+        targetSdkVersion targetSDK
+        versionCode 13
+        versionName versionNameValue
         multiDexEnabled true
     }
 
@@ -105,16 +116,16 @@ android.libraryVariants.all { variant ->
 // To publish to maven local execute "gradle clean build publishToMavenLocal"
 // To publish to nexus execute "gradle clean build publish"
 android.libraryVariants
-signing {
+/*signing {
     required { false } // Disabilita la firma
-}
+}*/
 publishing {
     publications {
         maven(MavenPublication) {
             artifact "${project.buildDir}/outputs/aar/${project.name}-release.aar"
             artifactId = POM_ARTIFACT_ID
-            groupId = GROUP
-            version = VERSION_NAME
+            groupId = group
+            version = versionNameValue
 
             // Task androidSourcesJar is provided by gradle-mvn-push.gradle
             //artifact androidSourcesJar {

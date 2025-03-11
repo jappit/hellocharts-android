@@ -77,6 +77,10 @@ public class LineChartRenderer extends AbstractChartRenderer {
         }
     }
 
+    public Paint getPointPaint() {
+        return pointPaint;
+    }
+
     @Override
     public void onChartDataChanged() {
         super.onChartDataChanged();
